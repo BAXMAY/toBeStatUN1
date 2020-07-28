@@ -23,14 +23,14 @@ export default class EditExercise extends Component {
   }
 
   componentDidMount() {
-    axios.get('/exercises/'+this.props.match.params.id)
+    axios.get('/exercises/' + this.props.match.params.id)
       .then(response => {
         this.setState({
           username: response.data.username,
           description: response.data.description,
           duration: response.data.duration,
           date: new Date(response.data.date)
-        })   
+        })
       })
       .catch(function (error) {
         console.log(error);
@@ -81,9 +81,9 @@ export default class EditExercise extends Component {
 
     console.log(exercise);
 
-    axios.post('/exercises/update/'+this.props.match.params.id, exercise)
+    axios.post('/exercises/update/' + this.props.match.params.id, exercise)
       .then(res => console.log(res.data));
-    
+
     window.location = '/';
   }
 
